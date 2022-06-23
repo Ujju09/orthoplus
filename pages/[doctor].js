@@ -23,6 +23,7 @@ export default function Doctor() {
     mobile: "",
     age: "",
     gender: "",
+    address: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -95,6 +96,13 @@ export default function Doctor() {
             name="age"
             onChange={handleChange}
           />
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="मरीज़ का पत्ता(Address)"
+            name="address"
+            onChange={handleChange}
+          />
 
           <div
             style={{
@@ -153,6 +161,7 @@ export default function Doctor() {
             </div>
           </div>
         </div>
+        <p>कंसल्टेशन फीस ₹ 800 हैं </p>
         <button
           className={styles.button}
           onClick={handleSubmit}

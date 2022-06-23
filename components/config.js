@@ -2,8 +2,14 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { collection, addDoc, getDocs, doc, getDoc ,getFirestore} from "firebase/firestore";
-
+import {
+  collection,
+  addDoc,
+  getDocs,
+  doc,
+  getDoc,
+  getFirestore,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyATmk9lDf2ZJ5kOO4Nt7W4ZkDuGCfbYSSw",
@@ -73,6 +79,7 @@ const CreateAppointments = async (id, props) => {
         age: props.age,
         isPaid: false,
         gender: props.gender,
+        address: props.address,
       }
     );
     return docRef.id;
@@ -82,10 +89,9 @@ const CreateAppointments = async (id, props) => {
 };
 
 const FetchConfirmedAppointmentData = async (hospitalID, id) => {
-
   try {
     const docRef = doc(db, `hospitals/${hospitalID}/appointments/${id}`);
-   
+
     const snapshot = await getDoc(docRef);
     return snapshot;
   } catch (e) {
